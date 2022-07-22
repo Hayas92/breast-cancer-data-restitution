@@ -1,0 +1,12 @@
+# File to delete later
+
+# General
+https://www.kaggle.com/search?q=breast+cancer
+
+# Dataset 1 : Real Breast Cancer Data
+# Description : Real breast cancer sample dataset, for healthcare and cancer data analysis.
+Link : https://www.kaggle.com/datasets/amandam1/breastcancerdataset
+Initial name : BRCA.csv
+New name : dataset_1_brca.csv
+
+# Dataset 2
