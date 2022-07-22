@@ -17,6 +17,6 @@ Nos sources de données s'appuye sur l'open data accessible librement.
 
 
 # Contributors
-* [MEDELLEL Sayah](https://github.com/Hayas92)
-* [CAMARA Moussa](https://github.com/moussa75XIX)
-* [MESSACI Nacim](https://github.com/nacim97)
+* [Hayas92](https://github.com/Hayas92)
+* [moussa75XIX](https://github.com/moussa75XIX)
+* [nacim97](https://github.com/nacim97)
