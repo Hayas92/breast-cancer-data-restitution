@@ -2,9 +2,7 @@ import scipy.stats as stats
 import csv
 
 FILENAME = "data/dataset_1_brca.csv"
-DELIMITER = ";"
-FILTERED_HEADERS = ['']
-MISSING_VALUES = [-1]
+DELIMITER = ","
 
 
 def getColumn(data, index):
