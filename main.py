@@ -92,8 +92,32 @@ if __name__ == "__main__":
     # Data shape
     print(f'{len(headers)} variables x {len(data)} lines')
 
-    variables = []
+    variables = {}
     for i in range(len(headers)):
         uv = UnivariateStats(headers[i], getColumn(data, i))
-        variables.append(uv)
+        variables[headers[i]] = uv
         print(uv)
+
+    # Show all histograms
+    axSize = ceil(sqrt(len(variables)))
+    fig, axes = plt.subplots(axSize, axSize)
+
+    i, j = 0, 0
+    for header in variables:
+        axes[i, j].set_title(header)
+
+        if len(variables[header].histo) <= 5:
+            values = variables[header].histo.values()
+            labels = list(variables[header].histo.keys())
+            axes[i, j].pie(values, labels=labels, autopct="%4.2f%%", shadow=True)
+
+        elif len(variables[header].histo) <= 10:
+            axes[i, j].hist(variables[header].data)
+
+        # Move towards the grid display
+        i += 1
+        if i >= axSize:
+            i = 0
+            j += 1
+
+    plt.show()
