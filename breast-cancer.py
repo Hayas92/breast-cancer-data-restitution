@@ -5,6 +5,8 @@ import numpy as np
 
 from math import *
 
+from matplotlib import pyplot
+
 FILENAME = "data/dataset_1_brca.csv"
 DELIMITER = ","
 # FILTERED_HEADERS = ['']
@@ -70,6 +72,70 @@ def histology_plot_pie(data, labels):
     plt.show()
 
 
+'''def operation_tumour_stage(df1, x1, x2, x3):
+    df1["Tumour_Stage"].value_counts().plot(kind='bar', figsize=(15, 10), rot=0)
+    labels = ['Surgery_type']
+    x1 = tumour_I_df['Tumour_Stage']
+    x2 = tumour_II_df['Tumour_Stage']
+    x3 = tumour_III_df['Tumour_Stage']
+
+    x = (len(labels))  # the label locations
+    width = 0.35  # the width of the bars
+
+    fig, ax = plt.subplots()
+    rects1 = ax.bar(x - width / 2, x1, width, label='Stage I')
+    rects2 = ax.bar(x + width / 2, x2, width, label='Stage II')
+    rects3 = ax.bar(x + width / 2, x3, width, label='Stage III')
+
+    # Add some text for labels, title and custom x-axis tick labels, etc.
+    ax.set_ylabel('score')
+    ax.set_title('Operation Done within the tumour stage')
+    ax.set_xticks(labels)
+    ax.legend()
+
+    ax.bar_label(rects1, padding=3)
+    ax.bar_label(rects2, padding=3)
+    ax.bar_label(rects3, padding=3)
+
+    fig.tight_layout()
+
+    plt.show()'''
+
+
+'''def operation_tumour_stage1(df1, x1, x2, x3):
+    df1["Surgery_type"].value_counts().plot(kind='bar', figsize=(15, 10), rot=0)
+    x1 = tumour_I_df['Tumour_Stage']
+    x2 = tumour_II_df['Tumour_Stage']
+    x3 = tumour_III_df['Tumour_Stage']
+
+
+    bins = [x + 60, x + 60, x + 60]
+    pyplot.hist([x1, x2, x3], bins=bins, color=['yellow', 'green', 'blue'],
+                edgecolor='red', hatch='/', label=['x1', 'x2', 'x3'],
+                histtype='barstacked')
+    pyplot.ylabel('Patient_Status')
+    pyplot.xlabel('Surgery_type')
+    pyplot.title('Operation Done within the tumour stage')
+    pyplot.legend()
+    pyplot.show()'''
+
+def operation_tumour_stage1(df1, x1, x2, x3):
+    df1["Surgery_type"].value_counts().plot(kind='bar', figsize=(15, 10), rot=0)
+    #df1["Tumour_Stage"].value_counts().plot(kind='bar', figsize=(15, 10), rot=0)
+    x1 = tumour_I_df['Tumour_Stage']
+    x2 = tumour_II_df['Tumour_Stage']
+    x3 = tumour_III_df['Tumour_Stage']
+
+    bins = [x - 2 for x in range(0, 6)]
+    pyplot.hist([x1, x2, x3], bins=bins, color=['yellow', 'green', 'blue'],
+                edgecolor='red', hatch='/', label=['Stage 1', 'Stage 2', 'Stage 3'],
+                histtype='bar')  # bar est le defaut
+    pyplot.ylabel('Patient_Status')
+    pyplot.xlabel('Surgery_type')
+    pyplot.title('Operation Done within the tumour stage')
+    pyplot.legend()
+    pyplot.show()
+
 if __name__ == "__main__":
     # Import CSV file
     breast_data_df = pd.read_csv(FILENAME, delimiter=DELIMITER)
@@ -124,3 +190,8 @@ if __name__ == "__main__":
     data = breast_data_df['Histology'].value_counts()
     labels = breast_data_df['Histology'].unique()
     histology_plot_pie(data, labels)
+
+    tumour_I_df = breast_data_df.query('Tumour_Stage == "I"')
+    tumour_II_df = breast_data_df.query('Tumour_Stage == "II"')
+    tumour_III_df = breast_data_df.query('Tumour_Stage == "III"')
+    operation_tumour_stage1(breast_data_df, tumour_I_df, tumour_II_df, tumour_III_df)
