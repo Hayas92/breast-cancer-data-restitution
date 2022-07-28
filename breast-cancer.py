@@ -120,7 +120,7 @@ if __name__ == "__main__":
 
     last_visit_count(data, year)
 
-    # Gender Plot Pie
+    # Histology Plot Pie
     data = breast_data_df['Histology'].value_counts()
     labels = breast_data_df['Histology'].unique()
     histology_plot_pie(data, labels)
