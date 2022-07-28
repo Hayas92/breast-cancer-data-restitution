@@ -7,13 +7,12 @@ Selon des statistiques environ 685 000 femmes sont mortes du cancer du sein en 2
 Dans ce projet de restitution de données nous chercherons à en savoir plus. Pour ce faire, nous avons mis en place différentes visualisation consultable sur ce dépôt. 
 
 
-# Sources des datasets
+# Sources du dataset
 
-Nos sources de données s'appuye sur l'open data accessible librement. 
+Notre source de données s'appuye sur de l'open data accessible librement. 
 
-- 
+- [Real Breast Cancer Data](https://www.kaggle.com/datasets/amandam1/breastcancerdataset)
 
--
 
 
 # Contributors
