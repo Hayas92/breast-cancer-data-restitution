@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import seaborn as sns
 import pandas as pd
 import numpy as np
 
@@ -13,6 +14,17 @@ DELIMITER = ","
 pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
 pd.set_option('display.width', 1000)
+
+
+def gender_plot_pie(data, labels):
+    data = data
+    colors = sns.color_palette('muted')
+    plt.title('Cancer du seins par sexe')
+    plt.pie(data, colors=colors, labels=labels, autopct='%.2f%%', shadow=True)
+    plt.savefig('savefig/gender_plot_pie.png')
+    
+    plt.show()
+
 
 if __name__ == "__main__":
     # Import CSV file
@@ -34,3 +46,8 @@ if __name__ == "__main__":
     print(breast_data_df.dtypes)
     # Print df head
     print(breast_data_df.head())
+
+    # Gender Plot Pie
+    data = breast_data_df['Gender'].value_counts()
+    labels = breast_data_df['Gender'].unique()
+    gender_plot_pie(data, labels)
