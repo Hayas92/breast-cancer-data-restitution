@@ -8,5 +8,3 @@ https://www.kaggle.com/search?q=breast+cancer
 Link : https://www.kaggle.com/datasets/amandam1/breastcancerdataset
 Initial name : BRCA.csv
 New name : dataset_1_brca.csv
-
-# Dataset 2
